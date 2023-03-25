@@ -4,7 +4,7 @@
 
 ### Create product schema
 
-    const productSchema = new mongoose.Schema({
+const productSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true,"product title is required"],
@@ -37,5 +37,5 @@
         type: Date,
         default: Date.now,
     },
-    });
+});
 
