@@ -1,5 +1,7 @@
 # Basic Operations of MongoDB
 
+Basic operations like create, read, find, update, delete data with built-in and custom schema.
+
 ## CRUD Operations in MongoDB
 
 ### Create product schema
