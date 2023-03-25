@@ -1,16 +1,6 @@
 # Basic Operations of MongoDB
 
-Basic operations like 
-
-create, 
-
-read, 
-
-find, 
-
-update, 
-
-delete data with built-in and custom schema.
+Basic operations of MongoDB like create, read, find, update, delete data with built-in and custom schema. MongoDBCompass must be connected to run the following operartions.
 
 ## CRUD Operations in MongoDB
 
