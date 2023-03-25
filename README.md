@@ -4,7 +4,7 @@
 
 ### Create product schema
 
-const productSchema = new mongoose.Schema({
+    const productSchema = new mongoose.Schema({
     title: {
         type: String,
         required: [true,"product title is required"],
@@ -37,5 +37,18 @@ const productSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-});
+    });
 
+### Create product model
+
+    const Product = mongoose.model("products", productSchema);
+    const connectDB = async()=>{
+    try{
+        await mongoose.connect('mongodb://127.0.0.1:27017/productdb');
+        console.log("DB is connected");
+    } catch (error) {
+        console.log("DB is not connected");
+        console.log(error.message);
+        process.exit(1);
+    }
+    }
