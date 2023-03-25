@@ -90,3 +90,82 @@
         res.status(500).send({message: error.message})
     }
     })
+ ### Find Data(specific)
+ 
+    app.get("/products/:id", async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const product = await Product.findOne({_id: id});
+        if(product){
+            res.status(200).send({
+                success: true,
+                message: "return single product",
+                data: product
+            });
+        }else{
+            res.status(404).send({
+                success: false,
+                message:"product not found"
+            });
+        }
+    } catch(error){
+        res.status(500).send({message: error.message})
+    }
+    })
+    
+ ### Update data
+ 
+    app.put("/products/:id", async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const updatedProduct = await Product.findByIdAndUpdate(
+            {
+                _id:id
+            },
+            {
+                $set:{
+                    title: req.body.title,
+                    price: req.body.price,
+                    description: req.body.description
+                },
+            }
+        );
+        if(updatedProduct){
+            res.status(200).send({
+                success: true,
+                message: "Updated single product",
+                data: updatedProduct
+            });
+        }else{
+            res.status(404).send({
+                success: false,
+                message:"product not updated"
+            });
+        }
+    }catch(error){
+        res.status(500).send({message: error.message});
+    }
+    })
+
+### Delete data
+
+    app.delete("/products/:id", async (req,res)=>{
+    try{
+        const id = req.params.id;
+        const product = await Product.findByIdAndDelete({_id: id});
+        if(product){
+            res.status(200).send({
+                success: true,
+                message: "deleted single product",
+                data: product
+            });
+        }else{
+            res.status(404).send({
+                success: false,
+                message:"product not deleted"
+            });
+        }
+    } catch(error){
+        res.status(500).send({message: error.message})
+    }
+    })
