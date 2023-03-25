@@ -90,7 +90,7 @@
         res.status(500).send({message: error.message})
     }
     })
- ### Find Data(specific)
+ ### Find data(specific)
  
     app.get("/products/:id", async(req,res)=>{
     try{
