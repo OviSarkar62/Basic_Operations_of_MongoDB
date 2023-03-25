@@ -68,3 +68,25 @@
         res.status(500).send({message: error.message});
     }
     })
+ 
+ ### Read data
+ 
+    app.get("/products", async(req,res)=>{
+    try{
+        const products = await Product.find().limit(10);
+        if(products){
+            res.status(200).send({
+                success: true,
+                message: "return all products",
+                data: products
+            });
+        }else{
+            res.status(404).send({
+                success: false,
+                message:"products not found"
+            });
+        }
+    } catch(error){
+        res.status(500).send({message: error.message})
+    }
+    })
